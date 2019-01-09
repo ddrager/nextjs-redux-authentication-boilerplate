@@ -7,17 +7,20 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "@zeit/next-css": "^0.2.0",
+    "@zeit/next-css": "^1.0.1",
     "express": "^4.16.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "6.0.3",
+    "next": "7.0.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.84.0"
   },
   "license": "ISC"
 }

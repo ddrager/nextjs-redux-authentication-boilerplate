@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import {connect} from 'react-redux'
+import { Segment } from 'semantic-ui-react'
 
 class Index extends React.Component {
   static getInitialProps ({ reduxStore, req }) {
@@ -18,12 +19,16 @@ class Index extends React.Component {
   render () {
     return (
       <div>
+      <Segment>
         <Link href="/login">
           <a>Login</a>
         </Link>
+      </Segment>
+      <Segment>
         <Link href="/dashboard">
           <a>Private Dashboard</a>
         </Link>
+      </Segment>
       </div>
     )
   }

@@ -1,40 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import compose from 'recompose/compose';
 import { userActions } from '../actions';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+
+import { Segment, Button } from 'semantic-ui-react'
 
 import Header from '../containers/header';
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    zIndex: 1,
-    position: 'relative',
-    display: 'flex',
-  },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-    paddingTop: '4rem'
-  },
-  paper: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-  }
-});
 
 class Login extends React.Component {
   static getInitialProps ({ reduxStore, req }) {
@@ -74,50 +44,40 @@ class Login extends React.Component {
   render () {
      const { classes, theme, loggedIn } = this.props;
     return (
-      <section className={classes.root}>
+      <section>
         <Header />
-          <main className={classes.content}>
-            <div className={classes.toolbar} />
-            <Paper className={classes.paper} elevation={1}>
-              <form onSubmit={ this.handleSubmit } className="ui form">
-                  <section className="field">
+          <main>
+            <div/>
+            <Segment>
+              <form onSubmit={ this.handleSubmit }>
+                  <section>
                       <label>Username:</label>
-                      <input 
-                          name="username" 
-                          type="text" 
-                          value={ this.state.username } 
-                          onChange={ this.handleChange } 
+                      <input
+                          name="username"
+                          type="text"
+                          value={ this.state.username }
+                          onChange={ this.handleChange }
                       />
                   </section>
 
                   <section className="field">
                       <label>Password:</label>
-                      <input 
-                          name="password" 
-                          type="text" 
-                          value={ this.state.password } 
-                          onChange={ this.handleChange } 
+                      <input
+                          name="password"
+                          type="text"
+                          value={ this.state.password }
+                          onChange={ this.handleChange }
                       />
                   </section>
                     <Button variant="contained" color="primary" onClick={ this.handleSubmit }>
                       Submit
                     </Button>
               </form>
-            </Paper>
-          </main> 
+            </Segment>
+          </main>
       </section>
     )
   }
 }
 
-// export default connect()(withStyles(styles, { withTheme: true })(Login))
-
-export default compose(
-  withStyles(styles, {
-    name: 'Login',
-    withTheme: true
-  }),
-  connect(state => ({
-    uiTheme: state.theme,
-  })),
-)(Login);
+export default connect()(Login)
